@@ -4,7 +4,9 @@
   "description": "JS seminar files",
   "main": "index.js",
   "dependencies": {
-    "marked": "^0.3.12"
+    "bluebird": "^3.5.2",
+    "marked": "^0.3.12",
+    "node-fetch": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -18,10 +20,13 @@
     "hget": "^3.1.0",
     "marked": "^0.3.12",
     "marked-terminal": "^2.0.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "slide1": "babel js/babelscript.js --out-file output.js"
   },
   "repository": {
     "type": "git",
@@ -33,5 +38,4 @@
     "url": "https://github.com/bausk/seminar2018/issues"
   },
   "homepage": "https://github.com/bausk/seminar2018#readme"
-  
 }
