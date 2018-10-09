@@ -1,10 +1,7 @@
-async function asyncFun () {
-  var value = await Promise
-    .resolve(1)
-    .then(x => x * 3)
-    .then(x => x + 5)
-    .then(x => x / 2);
-  return value;
-}
 
-asyncFun().then(x => console.log(`x: ${x}`));
+export const fib = (n) => {
+  if(n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+};
+
+console.log(fib(10));
