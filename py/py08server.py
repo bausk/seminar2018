@@ -3,16 +3,22 @@ from socket import *
 
 loop = asyncio.get_event_loop()
 
+
+def fib(n):
+    if n < 2:
+        return 0
+    return fib(n - 1) + fib(n - 2)
+
+
 async def echo_handler(client):
     with client:
         while True:
-            print('start listening')
             data = await loop.sock_recv(client, 10000)
-            print(data)
             if not data:
                 break
-            await loop.sock_sendall(client, b'Got:' + data)
+            await loop.sock_sendall(client, b'Got:' + bytes(fib(int(data))))
     print('Connection closed')
+
 
 async def echo_server(address):
     sock = socket(AF_INET, SOCK_STREAM)
