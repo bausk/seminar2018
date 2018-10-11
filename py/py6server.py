@@ -1,23 +1,10 @@
 import asyncio
+import aiohttp
 from socket import *
+from py00fib import fib
+
 
 loop = asyncio.get_event_loop()
-
-
-def fib(n):
-    if n < 2:
-        return 0
-    return fib(n - 1) + fib(n - 2)
-
-
-async def echo_handler(client):
-    with client:
-        while True:
-            data = await loop.sock_recv(client, 10000)
-            if not data:
-                break
-            await loop.sock_sendall(client, b'Got:' + bytes(fib(int(data))))
-    print('Connection closed')
 
 
 async def echo_server(address):
@@ -30,6 +17,16 @@ async def echo_server(address):
         client, addr = await loop.sock_accept(sock)
         print('connection from', addr)
         asyncio.ensure_future(loop.create_task(echo_handler(client)))
+
+
+async def echo_handler(client):
+    with client:
+        while True:
+            data = await loop.sock_recv(client, 10000)
+            if not data:
+                break
+            await loop.sock_sendall(client, b'Got:' + bytes(fib(int(data))))
+    print('Connection closed')
 
 
 loop.create_task(echo_server(('', 25000)))

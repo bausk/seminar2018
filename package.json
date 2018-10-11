@@ -33,7 +33,8 @@
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "slide1": "babel js/babelscript.js --out-file dist/babel1.js",
-    "start": "webpack-dev-server --config webpack.raw.js"
+    "start": "webpack-dev-server --config webpack.raw.js",
+    "startbabel": "webpack-dev-server --config webpack.config.js"
   },
   "repository": {
     "type": "git",

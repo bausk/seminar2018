@@ -10,7 +10,12 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
-      }
+      },
+      {
+        test: /\.(html)$/,
+        exclude: /node_modules/,
+        use: ['handlebars-loader']
+      },
     ]
   },
   resolve: {
@@ -19,11 +24,15 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    library: 'foo',
+    libraryTarget: 'var'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: 'js/index.html'
+    })
   ],
   devServer: {
     contentBase: './dist',

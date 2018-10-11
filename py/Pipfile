@@ -8,6 +8,7 @@ requests = "*"
 pygments = "*"
 requests-toolbelt = "*"
 asyncio = "*"
+aiohttp = "*"
 
 [dev-packages]
 
