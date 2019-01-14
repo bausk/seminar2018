@@ -10,6 +10,8 @@
     "html-webpack-plugin": "^3.2.0",
     "marked": "^0.3.12",
     "node-fetch": "^2.2.0",
+    "redux-observable": "^1.0.0",
+    "rxjs": "^6.3.3",
     "webpack": "^4.20.2",
     "webpack-dev-server": "^3.1.9"
   },
@@ -33,8 +35,10 @@
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "slide1": "babel js/babelscript.js --out-file dist/babel1.js",
-    "start": "webpack-dev-server --config webpack.raw.js",
-    "startbabel": "webpack-dev-server --config webpack.config.js"
+    "startlib": "webpack-dev-server --config webpack.lib.js",
+    "startlibbabel": "webpack-dev-server --config webpack.lib.babel.js",
+    "start": "webpack-dev-server --config webpack.config.js",
+    "startbabel": "webpack-dev-server --config webpack.babel.js"
   },
   "repository": {
     "type": "git",
