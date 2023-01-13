@@ -29,7 +29,7 @@
     "marked": "^0.3.12",
     "marked-terminal": "^2.0.0",
     "request": "^2.83.0",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "build": "webpack",
